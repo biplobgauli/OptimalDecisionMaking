@@ -15,4 +15,6 @@ We are running the experiment for 100,000 times so that we can clearly see the t
 
 Just to experiment, I added another slot machine with epsilon value 0.001 and ran the experiment. We can now see the results in the graph for all four slot machines. In this case, looks like the second slot with epsilon value 0.05 gives a maximum payout.
 
+Refer to the notebook file bandit.ipynb for details.
+
 ![bandit](https://user-images.githubusercontent.com/7417075/40161526-4ad94f6c-596e-11e8-9138-00f2eac10e68.PNG)
