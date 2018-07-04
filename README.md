@@ -1,6 +1,4 @@
-# OptimalDecisionMaking
-
-## Multi-Arm Bandit Problem
+# MULTI-ARM BANDIT PROBLEM
 ##### ***Refer to bandit.ipynb file for code***
 
 Multi-arm bandit is a classic example of reinforcement learning where there are multiple options, in this case slot machines, and the player needs to identify the slot with the maximum payout so that the profit is maximized.
@@ -21,7 +19,7 @@ Refer to the notebook file bandit.ipynb for details.
 
 
 
-## ***Monte Carlo***
+# MONTE CARLO
 
 ##### ***Refer to Monte Carlo Combined.ipynb file for code***
 
@@ -63,4 +61,39 @@ Here is what the outcome looks like with exploring start method where all possib
 However, it is not always possible to select a random initial step. Sometimes, the initial step is already set. We will do the same here. We will remove the randomness on the initial action and set a fixed starting point. We will also change our policy to epsilon greedy from greedy so that we do a little exploration while finding our optimal policy.
 
 ![6](https://user-images.githubusercontent.com/7417075/42256791-5d6aadd4-7f10-11e8-9310-bcc46cbb0db6.png)
+
+
+# TEMPORAL DIFFERENCE
+Temporal Difference Learning combines features from both Dynamic Programming and Monte Carlo to solve the Markov Decision Process. In fact, it tries to overcome the drawbacks from both methods. For instance, Dynamic Programming requires all states to be listed, which isn’t always possible, so it learns from experience, like in Monte Carlo. Similarly, Monte Carlo requires an episode to be complete before updating the estimates, but TD Learning can improve its estimates based on its existing estimates, like in Dynamic Programming.
+
+As in Monte Carlo, we have two steps to solving the MDP through TD Learning. First is to calculate the value function and then find the optimal policy. In this case, we use TD(0) for calculating value function and Q learning for optimization.
+
+### Value Function through TD(0)
+
+This is the step in TD Learning where we overcome the drawback of Monte Carlo to wait for an episode to complete calculate the return. This is because TD(0) algorithm just needs to reach to the next state to get the value for the present state as r + γV(s’). As such, we can improve the performance within an episode itself, which is very helpful if an episode is very long. We also don’t need the full environment because we only calculate returns for the state we visit.
+
+As we only calculate value for the state we visit, our model may not calculate values for all states, especially if the model is deterministic. As such, we use epsilon soft to do a bit of exploration. However, I wanted to experiment what would happen if there was no exploration so I made the value of epsilon negligible and the model just followed one policy and calculated values for states within this policy. Values for other states were unexplored and their values were 0, as shown below.
+p1
+
+We use a standard grid and our initial policy. Here is how we calculate the value for each state once we reach s’, or in this case, s2.
+
+p2
+
+Notice that this is value calculation step, so the policy is not optimal.
+
+p3
+
+
+### Optimizing through Q Learning
+
+Q Learning is unique because it takes a very different approach than we have been taking so far for optimizing. We started off with evaluating a given policy and then moved to improving the policy using a greedy method, which is also called on-policy method because we a following a policy. However, Q learning is different as we do not have to do these steps and there is no set policy we are using or improving, which is why it is off-policy. It assumes that we can take any random action and still be able to calculate the optimum value and the optimum policy.
+
+But there is a cost to taking random actions and not following a policy. It will take longer to arrive at the same result and thus an episode will take longer to finish resulting in a suboptimal model.
+
+In the code, rather than taking the next action based on max value, a random action is taken every time with just epsilon greedy.
+
+p4
+
+Here are the values and policy through Q Learning.
+p5
 
