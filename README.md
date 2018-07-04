@@ -18,6 +18,23 @@ Refer to the notebook file bandit.ipynb for details.
 ![bandit](https://user-images.githubusercontent.com/7417075/40161526-4ad94f6c-596e-11e8-9138-00f2eac10e68.PNG)
 
 
+# TIC TAC TOE
+
+##### ***Refer to tictactoe.ipynb file for code***
+
+There are several ways Tic Tac Tor can be coded. The obvious way is to list down all conditions and states and generate a sequence of if statements what will help the model determine what the best move is while playing it against the opponent. Tic Tac Toc is not a complex game, it is a 3*3 board only with nine available options, but all possible permutations in this board is 9! which is large. If the board were to be 4*4 with 16 permutations, you can easily image how long the code would be if we were to do this through is statements.
+
+As such, we do this via Reinforcement Learning. The goal here is to set the environment with all possible states, agents and rewards so that the game can be played over a period of episodes so that the game learns from itself in each episode. This way, we still reach the goal of generating a model that is able to play the game without hard coding all possible states. 
+
+The way we teach our model how to make every subsequent move is by the concept of value function and reward. Moving to each step or state has an immediate reward. However, we are more concerned about the future prospect of that state rather than the immediate reward. A state can have a better reward but it may not have the best value that will eventually help us win. As such, we calculate the value function of each possible states and move to that state rather than a state with just a better reward. 
+The value function can be summarized as the average of all future rewards for a state. The value function is notated as below. 
+
+V(s) = V(s) + alpha*(V(s’) – V(s)) 
+
+At high level, our goal is to have to agents play against each other for 1000 iterations and learn from each other. Player 1 will be X while Player 2 will be 0. After 1000 iterations, we will consider the model as trained and we will swap Player 2 with a human player. This is when we can play against the trained model and see it how well the model plays.
+
+
+
 
 # MONTE CARLO
 
