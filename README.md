@@ -1,6 +1,6 @@
 # OptimalDecisionMaking
 
-Week 1: Multi-Arm Bandit Problem
+### Week 1: Multi-Arm Bandit Problem
 
 
 Multi-arm bandit is a classic example of reinforcement learning where there are multiple options, in this case slot machines, and the player needs to identify the slot with the maximum payout so that the profit is maximized.
