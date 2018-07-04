@@ -33,6 +33,29 @@ V(s) = V(s) + alpha*(V(s’) – V(s))
 
 At high level, our goal is to have to agents play against each other for 1000 iterations and learn from each other. Player 1 will be X while Player 2 will be 0. After 1000 iterations, we will consider the model as trained and we will swap Player 2 with a human player. This is when we can play against the trained model and see it how well the model plays.
 
+We can see our value function in action in the format we had specified earlier.
+
+![1](https://user-images.githubusercontent.com/7417075/42296199-f9be9c64-7faf-11e8-8184-3d58d892ef8b.png)
+
+We have also developed a verbose function that visualizes the value function in play. It prints the 3*3 grid and gives a value function for each available state. So in the following case, (2,1) has the highest value because for agent 0, it will help win the game and for agent X, it will help defend the game.
+
+![2](https://user-images.githubusercontent.com/7417075/42296200-f9f590a2-7faf-11e8-8c62-45c4017dcae2.png)
+
+When playing the game, you can see how the model is playing the game. Because of our verbose function, P1 makes a move according to the value function and lets us make the move. 
+
+![3](https://user-images.githubusercontent.com/7417075/42296202-fa1892b4-7faf-11e8-82ea-62c443b347ca.png)
+
+As the game progresses, P1 uses the value function to make its move and makes the action based on the highest value from the grid.
+
+![4](https://user-images.githubusercontent.com/7417075/42296203-fa436f98-7faf-11e8-9121-5a60a374a779.png)
+
+
+There are a few variables that we can tweak here. Epsilon dictates how much exploration to do. Alpha dictates the learning rate and T dictates the number of episodes. The model was so good that I could not beat Player 1 so I tweaked these variables so that the learning for P1 is limited hoping I can beat it. Here is what happened. Although, it was good that it was trying to make a sequence, it was not necessarily looking at my moves and deterring me from making a game. 
+
+![5](https://user-images.githubusercontent.com/7417075/42296198-f9a8dcd0-7faf-11e8-8d5c-77626bfe4b1e.png)
+
+With all machine learning models, there is always a tradeoff between making a model robust vs the time it takes to train the model. Although time is not of concern here in this simple game, a less robust model may be quicker to train but the results may not be great, as shown in the final example.
+
 
 
 
