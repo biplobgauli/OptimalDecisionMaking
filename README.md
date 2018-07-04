@@ -37,14 +37,17 @@ First, we look at the policy evaluation part with a deterministic model where we
 ![1](https://user-images.githubusercontent.com/7417075/42256786-5cce3846-7f10-11e8-89e3-1b200f732f01.png)
 
 But this stage is just about calculating the value, which is shown as following.
+
 ![2](https://user-images.githubusercontent.com/7417075/42256787-5ce1b4fc-7f10-11e8-8fdf-f8361931c8c0.png)
 
 The second variation here is to make the policy stochastic thus adding an element of probability and making the policy win, unlike our last policy.
 
 As shown below, now the policy aims to win by making 0,3 its terminal state which has a reward of 1.
+
 ![3](https://user-images.githubusercontent.com/7417075/42256788-5d319116-7f10-11e8-9512-29e065b9aa70.png)
 
 Notice that in this policy, which is designed to win, the value increases as you get closer to the terminal state with the highest return(0,3).
+
 ![4](https://user-images.githubusercontent.com/7417075/42256789-5d44cc2c-7f10-11e8-909d-163e62712d6c.png)
 
 ### POLICY OPTIMIZATION STEP
@@ -52,8 +55,10 @@ Notice that in this policy, which is designed to win, the value increases as you
 Now we try to find an optimal policy from all possibilities. For this, we do not define a policy like we did for policy evaluation--we select a random policy. However, until now, we were only finding expected value, V(s) based on a state but now we need to find expected value, V(s, a) based on a state and the action taken. This way we can identify which set of actions(policy) has the maximum value to identify the optimum policy.
 This is calculated by taking argmax of Q(s,a).
 Here is what the outcome looks like with exploring start method where all possible states have the likelihood of being the initial step—or the first action is uniformly random with a greedy policy.
+
 ![5](https://user-images.githubusercontent.com/7417075/42256790-5d5859e0-7f10-11e8-84ef-126221b56f47.png)
 
 However, it is not always possible to select a random initial step. Sometimes, the initial step is already set. We will do the same here. We will remove the randomness on the initial action and set a fixed starting point. We will also change our policy to epsilon greedy from greedy so that we do a little exploration while finding our optimal policy.
+
 ![6](https://user-images.githubusercontent.com/7417075/42256791-5d6aadd4-7f10-11e8-9310-bcc46cbb0db6.png)
 
