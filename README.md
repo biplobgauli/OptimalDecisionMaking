@@ -73,15 +73,16 @@ As in Monte Carlo, we have two steps to solving the MDP through TD Learning. Fir
 This is the step in TD Learning where we overcome the drawback of Monte Carlo to wait for an episode to complete calculate the return. This is because TD(0) algorithm just needs to reach to the next state to get the value for the present state as r + γV(s’). As such, we can improve the performance within an episode itself, which is very helpful if an episode is very long. We also don’t need the full environment because we only calculate returns for the state we visit.
 
 As we only calculate value for the state we visit, our model may not calculate values for all states, especially if the model is deterministic. As such, we use epsilon soft to do a bit of exploration. However, I wanted to experiment what would happen if there was no exploration so I made the value of epsilon negligible and the model just followed one policy and calculated values for states within this policy. Values for other states were unexplored and their values were 0, as shown below.
-p1
+
+![1](https://user-images.githubusercontent.com/7417075/42291981-6e8ff552-7f8c-11e8-866d-6373dffdc9ae.png)
 
 We use a standard grid and our initial policy. Here is how we calculate the value for each state once we reach s’, or in this case, s2.
 
-p2
+![2](https://user-images.githubusercontent.com/7417075/42291982-6ea1d18c-7f8c-11e8-9454-a65c9ef9f7e5.png)
 
 Notice that this is value calculation step, so the policy is not optimal.
 
-p3
+![3](https://user-images.githubusercontent.com/7417075/42291983-6eb25a3e-7f8c-11e8-81ad-64af01228fb7.png)
 
 
 ### Optimizing through Q Learning
@@ -92,8 +93,8 @@ But there is a cost to taking random actions and not following a policy. It will
 
 In the code, rather than taking the next action based on max value, a random action is taken every time with just epsilon greedy.
 
-p4
+![4](https://user-images.githubusercontent.com/7417075/42291984-6ecad14a-7f8c-11e8-9b68-7fa3820462cd.png)
 
 Here are the values and policy through Q Learning.
-p5
 
+![5](https://user-images.githubusercontent.com/7417075/42291980-6e7b9a4e-7f8c-11e8-8dee-757b5949e26f.png)
