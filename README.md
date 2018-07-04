@@ -64,6 +64,9 @@ However, it is not always possible to select a random initial step. Sometimes, t
 
 
 # TEMPORAL DIFFERENCE
+
+##### ***Refer to TD Learning.ipynb file for code***
+
 Temporal Difference Learning combines features from both Dynamic Programming and Monte Carlo to solve the Markov Decision Process. In fact, it tries to overcome the drawbacks from both methods. For instance, Dynamic Programming requires all states to be listed, which isn’t always possible, so it learns from experience, like in Monte Carlo. Similarly, Monte Carlo requires an episode to be complete before updating the estimates, but TD Learning can improve its estimates based on its existing estimates, like in Dynamic Programming.
 
 As in Monte Carlo, we have two steps to solving the MDP through TD Learning. First is to calculate the value function and then find the optimal policy. In this case, we use TD(0) for calculating value function and Q learning for optimization.
