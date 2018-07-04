@@ -1,7 +1,9 @@
 # OptimalDecisionMaking
 
-### Multi-Arm Bandit Problem
+### <span style="color:blue"> Multi-Arm Bandit Problem </span>
 
+
+<span style="color:orange;">Word up</span>
 
 Multi-arm bandit is a classic example of reinforcement learning where there are multiple options, in this case slot machines, and the player needs to identify the slot with the maximum payout so that the profit is maximized.
 
