@@ -1,6 +1,7 @@
 # OptimalDecisionMaking
 
-### Multi-Arm Bandit Problem
+## Multi-Arm Bandit Problem
+##### refer to bandit.ipynb file for code
 
 Multi-arm bandit is a classic example of reinforcement learning where there are multiple options, in this case slot machines, and the player needs to identify the slot with the maximum payout so that the profit is maximized.
 
@@ -21,6 +22,8 @@ Refer to the notebook file bandit.ipynb for details.
 
 
 ## Monte Carlo
+
+##### refer to Monte Carlo Combined.ipynb file for code
 
 In previous evaluations, we assumed that we were fully aware of the environment and all possible states. We played a simple board game and tic tac toe where it was valid. However, in real life reinforcement learning, this is not always possible—we become more aware of the environment and the different states within in as we play the game or gain experience. In this experiment, we will go through both options and see how they compare.
 
