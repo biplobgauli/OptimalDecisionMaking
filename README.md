@@ -95,6 +95,6 @@ In the code, rather than taking the next action based on max value, a random act
 
 ![4](https://user-images.githubusercontent.com/7417075/42291984-6ecad14a-7f8c-11e8-9b68-7fa3820462cd.png)
 
-Here are the values and policy through Q Learning.
+Here are the values and policy through Q Learning. Unlike in T(0), now the policy is optimal.
 
 ![5](https://user-images.githubusercontent.com/7417075/42291980-6e7b9a4e-7f8c-11e8-8dee-757b5949e26f.png)
