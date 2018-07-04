@@ -41,6 +41,7 @@ But this stage is just about calculating the value, which is shown as following.
 pic 2
 
 The second variation here is to make the policy stochastic thus adding an element of probability and making the policy win, unlike our last policy.
+
 As shown below, now the policy aims to win by making 0,3 its terminal state which has a reward of 1.
 pic 3
 
