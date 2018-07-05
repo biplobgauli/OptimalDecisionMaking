@@ -13,9 +13,15 @@ We are running the experiment for 100,000 times so that we can clearly see the t
 
 Just to experiment, I added another slot machine with epsilon value 0.001 and ran the experiment. We can now see the results in the graph for all four slot machines. In this case, looks like the second slot with epsilon value 0.05 gives a maximum payout.
 
-Refer to the notebook file bandit.ipynb for details.
+![1](https://user-images.githubusercontent.com/7417075/42305525-8d2319d4-7fe8-11e8-888a-8a0a8ed024d8.png)
 
-![bandit](https://user-images.githubusercontent.com/7417075/40161526-4ad94f6c-596e-11e8-9138-00f2eac10e68.PNG)
+The result we got from epsilon greedy for solving the explore/exploit dilemma is not bad, but we can do better. We do this by implementing the concept of upper bound or optimistic initial value. The concept behind this is that if we set an unnaturally high mean value to begin with, there is only going down. This is at odds with our initial method where we sent the mean as 0. If the true mean is say, 3 but we have the optimistic mean/ upper bound at 10, the estimate mean will eventually converge and get closer to 1 eventually as we collect more data. 
+
+![2](https://user-images.githubusercontent.com/7417075/42305526-8d369c2a-7fe8-11e8-864d-7c1e92c9e387.png)
+
+We then want to compare the results from our optimistic method to when epsilon is 0.001 because 0.001 gave us the best result on our initial run. As shown by the graph below, in both linear and log scale, the optimistic method outperforms the one with epsilon.
+
+![3](https://user-images.githubusercontent.com/7417075/42305524-8d0fa91c-7fe8-11e8-9b33-6660d86b5d52.png)
 
 
 # TIC TAC TOE
