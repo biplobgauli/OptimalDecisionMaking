@@ -57,7 +57,40 @@ There are a few variables that we can tweak here. Epsilon dictates how much expl
 With all machine learning models, there is always a tradeoff between making a model robust vs the time it takes to train the model. Although time is not of concern here in this simple game, a less robust model may be quicker to train but the results may not be great, as shown in the final example.
 
 
+# ITERATIVE POLICY EVALUATION
 
+Here we try to discuss the Markov Decision Process, otherwise known as MDP. Any reinforcement learning problem with these five components (set of states, actions, rewards, action probabilities and discount factor) is a MDP.
+
+To work on a MDP, there are two steps. First one is to calculate a value function, that determines what actions to take based on the maximum value of available states and the other is to find a policy, otherwise known as a set of actions that lead to the terminal state. However, we do not need any random policy but an optimum policy with the highest reward. Value is denoted by V(s) at state s and policy is noted as π. Optimal value is noted as V*(s) and optimal policy as π*.
+
+For iterative policy evaluation, we will use the Bellman’s equation repeatedly until it converges. When we say converges, we mean that the difference between the maximum value and the calculated value so that we break the loop when we are sure the current maximum value we have is the maximum.  Here is how we denote the equation.
+
+![1](https://user-images.githubusercontent.com/7417075/42296998-cd88451a-7fb8-11e8-9021-42f990ef694b.png)
+
+We will use the help of the grid world problem to delve into iterative policy evaluation. The grid is basically a 3*4 box with a defined starting place, with two possible terminal states, one with a positive value and the other with a negative value.  There is also a state in the gird that the player cannot enter, so we will exclude this as a possible state. Here is what the grid looks like.
+
+![2](https://user-images.githubusercontent.com/7417075/42296996-cd6106da-7fb8-11e8-95f3-26caf1ba6705.png)
+
+A player may eventually reach the terminal state with the highest reward but it may also never reach the terminal state because the player can in fact just revolve around the black wall. This can be done in a normal grid. We now introduce a negative grid where there is cost for each action. As such, the player sets to reach the best terminal state in the shortest time possible. There is also a concept of a random policy and a fixed policy. We will use them both in this example to look at the differences.
+
+### Uniformly Random Actions
+In the case of uniformly random actions, each action has an equal probability of being selected. This is noted as 1.0 / len(grid.actions[s]). We then get into the loop, calculate the value function and store the value as new_v to eventually compare if the difference in values is smaller than our set small threshold to get the best value.
+
+![3](https://user-images.githubusercontent.com/7417075/42296997-cd752ee4-7fb8-11e8-9caf-2faf0ec44e33.png)
+
+When we look at values for uniformly random actions, here is what the values look like. Most of them are negative because if they are mobbing randomly, they can also get to the loosing state and there are two ways you can get to the loosing state and only one way to the winning state.
+
+![4](https://user-images.githubusercontent.com/7417075/42297002-d7186524-7fb8-11e8-935e-d38023265cf6.png)
+
+### Fixed Policy
+
+For a fixed policy with a discount factor, the closer we are to the terminal state, the higher our values are. This is because of the discount factor, which we set as 0.9 which is why the value function decreases from 1 to 0.9 to 0.81 and so on. 
+
+![5](https://user-images.githubusercontent.com/7417075/42297003-d72af7e8-7fb8-11e8-87e3-dc3f617cb694.png)
+
+I tried this with a discount factor of 1 and the discounting stopped. All the states within the policy had  a value of 1 because there is no discounting and eventually you will reach the terminal state because of the fixed policy.
+
+![6](https://user-images.githubusercontent.com/7417075/42297001-d7040930-7fb8-11e8-952f-b52685a46e32.png)
 
 # MONTE CARLO
 
