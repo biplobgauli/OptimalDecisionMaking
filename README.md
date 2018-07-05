@@ -11,7 +11,7 @@ We are using epsilon greedy algorithm in this experiment because it is effective
 
 We are running the experiment for 100,000 times so that we can clearly see the trend in payouts for all bandits and calculate their means. If we just use a linear scale for the plots, we cannot see the initial volatility in the trending so we use a log scale.
 
-Just to experiment, I added another slot machine with epsilon value 0.001 and ran the experiment. We can now see the results in the graph for all four slot machines. In this case, looks like the second slot with epsilon value 0.05 gives a maximum payout.
+Just to experiment, I added another slot machine with epsilon value 0.001 and ran the experiment. We can now see the results in the graph for all four slot machines. In this case, looks like the last slot with epsilon value 0.001, shown in red, gives the maximum payout.
 
 ![1](https://user-images.githubusercontent.com/7417075/42305525-8d2319d4-7fe8-11e8-888a-8a0a8ed024d8.png)
 
