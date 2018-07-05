@@ -92,6 +92,44 @@ I tried this with a discount factor of 1 and the discounting stopped. All the st
 
 ![6](https://user-images.githubusercontent.com/7417075/42297001-d7040930-7fb8-11e8-952f-b52685a46e32.png)
 
+
+
+# POLICY ITERATION AND VALUE ITERATION
+
+In iterative policy evaluation, we looked at calculating value function but we did not look into optimizing the policy. Now we will look at two different ways improving our policy.
+
+### Policy Iteration
+
+Policy iteration includes policy evaluation and policy improvement in order to finally converge the policy. Here you start with a random policy and then find the value function of this random policy and make improvements to the policy based on the value function. In subsequent steps, the policy goes through improvements until the policy converges.
+
+We will use grid world example to elaborate on this. We will also use the negative grid on this and have -0.1 reward for each non terminal state. 
+
+As mentioned earlier, we will begin with a random policy, calculate the value function and make improvement on the policy.
+
+![1](https://user-images.githubusercontent.com/7417075/42298259-38b7569c-7fc2-11e8-8413-fd8103997c89.png)
+
+We now move the calculating the value function capturing max change. If the change is very small, we proceed to policy improvement phase.
+ 
+![2](https://user-images.githubusercontent.com/7417075/42298260-38c9beae-7fc2-11e8-81dd-f73dac6f9f19.png)
+
+For policy improvement, we assign the old values to old_a and look for all possible actions to find the best value. We choose the action that gives us the best value. At the end we check if new_a = old_a. If they are equal, the policy is said to be converged and we have our final policy. If not, the process continues.
+
+![3](https://user-images.githubusercontent.com/7417075/42298261-38dcc918-7fc2-11e8-8fb4-68c4e4f8f83f.png)
+
+Here is the final policy we get through policy iteration.
+
+![4](https://user-images.githubusercontent.com/7417075/42298262-38efddaa-7fc2-11e8-863c-18d2440fde46.png)
+
+### Value Iteration
+Value iteration does not calculate the policy but rather the optimal value function and selects any policy that meets the criteria because a policy with an optimal value function should also be optimal.
+Policy iteration step may not be the best option because there is on iterative step inside another so value iteration may be a better option. The value iteration function combines policy evaluation and policy improvement. This equation takes the maximum of all possible actions. The codes for policy iteration and value iteration may look similar.
+ 
+![5](https://user-images.githubusercontent.com/7417075/42298263-39035bdc-7fc2-11e8-888f-29d6e3cf8c91.png)
+
+Here is the result from value iteration. The result from both options yield the same values.
+
+![6](https://user-images.githubusercontent.com/7417075/42298264-3917e98a-7fc2-11e8-993c-e0c86c95a1b6.png)
+
 # MONTE CARLO
 
 ##### ***Refer to Monte Carlo Combined.ipynb file for code***
